@@ -1,0 +1,8 @@
+hello_world: hello_world.o hello_func.o
+	gcc -o hello_world hello_world.o hello_func.o
+
+hello_world.o: hello_world.c hello_make.h
+	gcc -c -o hello_world.o hello_world.c
+
+hello_func.c: hello_func.o hello_make.h
+	gcc -c -o hello_func.o hello_func.c
