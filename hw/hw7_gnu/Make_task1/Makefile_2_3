@@ -1,0 +1,21 @@
+CC = gcc
+CFLAGS = -Wall  # Enable all compiler warnings
+
+# The default target 'all', which depends on the 'program' target
+all: program
+
+# $^ is an automatic variable that represents all dependencies (main.o and src1.o)
+# $@ is an automatic variable that represents the target of the rule (program)
+program: main.o src1.o
+	$(CC) $(CFLAGS) $^ -o $@  # $^ expands to main.o src1.o, and $@ is the target (program)
+
+
+main.o: main.c
+	$(CC) $(CFLAGS) -c $< -o $@  # $< expands to main.c, and $@ is the target (main.o)
+
+src1.o: src1.c
+	$(CC) $(CFLAGS) -c $< -o $@  # $< expands to src1.c, and $@ is the target (src1.o)
+
+# The 'clean' target: deletes all object files (*.o) and the executable (program)
+clean:
+	rm -f *.o program  # Removes object files and the program executable

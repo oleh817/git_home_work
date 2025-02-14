@@ -1,0 +1,14 @@
+CC = gcc
+CFLAGS = -Wall
+
+all: program
+
+program: main.o src1.o
+	$(CC) $(CFLAGS) main.o src1.o -o program
+
+main.o: main.c
+	$(CC) $(CFLAGS) -c main.c
+
+src1.o: src1.c
+	$(CC) $(CFLAGS) -c src1.c
+

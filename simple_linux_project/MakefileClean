@@ -1,0 +1,16 @@
+GC = gcc
+OBJ = hello_world.o hello_func.o
+DEPS = hello_make.h
+
+
+hello_world: $(OBJ)
+	$(CC) -o $@ $^
+
+hello_world.o: hello_world.c $(DEPS)
+	$(CC) -c $^
+
+hello_func.o: hello_func.c $(DEPS)
+	$(CC) -c $^
+
+clean:
+	rm -rf *.o hello_world
