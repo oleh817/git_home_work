@@ -1,0 +1,14 @@
+# Use the official Alpine image
+FROM alpine:latest
+
+# Install netcat (for communication)
+RUN apk --no-cache add netcat-openbsd
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the content from the host to the container, including the client script
+COPY ../scripts/client.sh /usr/src/app/
+
+# Set the default command to run the client script
+CMD ["sh", "/usr/src/app/client.sh"]

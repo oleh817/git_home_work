@@ -1,4 +1,3 @@
-// calculator.c
 #include <math.h>  // For sqrt
 #include <stdio.h>  // For printf
 
@@ -26,11 +25,20 @@ double fraction(double a, double b) {
     return a / b;
 }
 
-// Function to calculate the factorial
+// Function to calculate the factorial (for small values)
 long long factorial(int n) {
+    if (n < 0) {
+        printf("Error: Factorial is not defined for negative numbers!\n");
+        return -1; // Error case
+    }
+    if (n > 20) {
+        printf("Error: Factorial is too large for this program (limit is 20)!\n");
+        return -1; // Error case for numbers greater than 20
+    }
     if (n == 0 || n == 1) {
         return 1;
     }
+
     long long result = 1;
     for (int i = 2; i <= n; i++) {
         result *= i;
@@ -42,7 +50,8 @@ long long factorial(int n) {
 double square_root(double a) {
     if (a < 0) {
         printf("Error: Negative input for square root!\n");
-        return -1; // Error case
+        return NAN; // Returning NaN for invalid square root
     }
     return sqrt(a);
 }
+

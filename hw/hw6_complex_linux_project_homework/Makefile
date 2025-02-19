@@ -49,7 +49,7 @@ $(SHARED_LIB): $(OBJ_DIR)/convert.o
 
 # Task 1: Compile the main executable (Calculator program)
 $(CALC_DIR)/main: $(OBJ_CALC) $(STATIC_LIB)
-	$(CC) -o $(CALC_DIR)/main $(OBJ_CALC) -L$(STATIC_LIB_DIR) -lcalculator
+	$(CC) -o $(CALC_DIR)/main $(OBJ_CALC) -L$(STATIC_LIB_DIR) -lcalculator -lm
 
 # Task 2: Compile the upper executable (Text Formatter)
 $(TEXT_FORMATTER_DIR)/upper: $(OBJ_UPPER) $(SHARED_LIB)
