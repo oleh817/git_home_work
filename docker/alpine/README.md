@@ -34,13 +34,13 @@ This will create two Docker images: `client-image` and `server-image`, which wil
    - **Run the server container, ensuring it is connected 
      to the my_custom_network network**:
      ```bash
-     docker run -d --name server --network my_custom_network -v $(pwd):/usr/src/app server-image
+     docker run -d --name server --network my_custom_network -v $(pwd)/scripts:/usr/src/app server-image
      ```
 
    - **Run the client container similarly 
        connected to the same network (my_custom_network)**:
      ```bash
-     docker run -d --name client --network my_custom_network -v $(pwd):/usr/src/app client-image
+     docker run -d --name client --network my_custom_network -v $(pwd)/scripts:/usr/src/app client-image
      ```  
 
 ## 4. Verify the Containers Are Running
@@ -48,7 +48,7 @@ This will create two Docker images: `client-image` and `server-image`, which wil
    - **To check if both containers are running**:
        Run the client container similarly connected to the same network (my_custom_network):
      ```bash
-     docker ps
+     docker ps -a
      ```
 
 ## 5. Commands to Verify Containers Connectivity Between Containers
@@ -56,7 +56,7 @@ This will create two Docker images: `client-image` and `server-image`, which wil
    - **Exec into the client container**:
        Run the client container similarly connected to the same network (my_custom_network):
      ```bash
-     docker exec -it client sh
+         docker exec -it client sh
      ```
    
    - **Test if the client can ping the server**:

@@ -1,4 +1,4 @@
 #!/bin/sh
 
-# Start the netcat listener on port 12345
-nc -l 12345
+echo "Server is waiting for incoming connection..."
+nc -lk 12345
